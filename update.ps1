@@ -141,21 +141,14 @@ function update-table($src1, $src2, $resultFile)
     foreach ($file1 in $files1)
     {
         $file2 = $src2 + '\' + $file1.Name
-        $status = 'Coming'
 
         if (test-path $file2)
         {
-            $content1 = gc ($file1.FullName) | out-string
-            $content2 = gc $file2 | out-string
-
-            if ($content1 -eq $content2)
-            {
-                $status = 'Done'
-            }
-            else
-            {
-                $status = 'Partially Done'
-            }
+            $status = 'Done'
+        }
+        else
+        {
+            $status = 'Coming'
         }
 
         $assemblyName = $file1.BaseName

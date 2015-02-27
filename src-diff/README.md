@@ -6,7 +6,7 @@ Assembly Name | Status
 [Microsoft.VisualBasic](Microsoft.VisualBasic.md) | Coming
 [Microsoft.Win32.Primitives](Microsoft.Win32.Primitives.md) | Done
 [Microsoft.Win32.Registry.AccessControl](Microsoft.Win32.Registry.AccessControl.md) | Coming
-[Microsoft.Win32.Registry](Microsoft.Win32.Registry.md) | Partially Done
+[Microsoft.Win32.Registry](Microsoft.Win32.Registry.md) | Done
 [System.AppContext](System.AppContext.md) | Coming
 [System.Collections.Concurrent](System.Collections.Concurrent.md) | Done
 [System.Collections](System.Collections.md) | Coming
@@ -16,14 +16,14 @@ Assembly Name | Status
 [System.ComponentModel](System.ComponentModel.md) | Done
 [System.ComponentModel.EventBasedAsync](System.ComponentModel.EventBasedAsync.md) | Done
 [System.ComponentModel.Primitives](System.ComponentModel.Primitives.md) | Done
-[System.ComponentModel.TypeConverter](System.ComponentModel.TypeConverter.md) | Partially Done
-[System.Console](System.Console.md) | Partially Done
+[System.ComponentModel.TypeConverter](System.ComponentModel.TypeConverter.md) | Done
+[System.Console](System.Console.md) | Done
 [System.Data.Common](System.Data.Common.md) | Coming
 [System.Data.SqlClient](System.Data.SqlClient.md) | Coming
 [System.Diagnostics.Contracts](System.Diagnostics.Contracts.md) | Coming
-[System.Diagnostics.Debug](System.Diagnostics.Debug.md) | Partially Done
+[System.Diagnostics.Debug](System.Diagnostics.Debug.md) | Done
 [System.Diagnostics.FileVersionInfo](System.Diagnostics.FileVersionInfo.md) | Done
-[System.Diagnostics.Process](System.Diagnostics.Process.md) | Partially Done
+[System.Diagnostics.Process](System.Diagnostics.Process.md) | Done
 [System.Diagnostics.TextWriterTraceListener](System.Diagnostics.TextWriterTraceListener.md) | Done
 [System.Diagnostics.Tools](System.Diagnostics.Tools.md) | Coming
 [System.Diagnostics.TraceSource](System.Diagnostics.TraceSource.md) | Done
@@ -36,7 +36,7 @@ Assembly Name | Status
 [System.IO.Compression.ZipFile](System.IO.Compression.ZipFile.md) | Coming
 [System.IO](System.IO.md) | Coming
 [System.IO.FileSystem.AccessControl](System.IO.FileSystem.AccessControl.md) | Coming
-[System.IO.FileSystem](System.IO.FileSystem.md) | Partially Done
+[System.IO.FileSystem](System.IO.FileSystem.md) | Done
 [System.IO.FileSystem.DriveInfo](System.IO.FileSystem.DriveInfo.md) | Done
 [System.IO.FileSystem.Primitives](System.IO.FileSystem.Primitives.md) | Done
 [System.IO.FileSystem.Watcher](System.IO.FileSystem.Watcher.md) | Coming
@@ -73,7 +73,7 @@ Assembly Name | Status
 [System.Runtime.InteropServices](System.Runtime.InteropServices.md) | Coming
 [System.Runtime.InteropServices.WindowsRuntime](System.Runtime.InteropServices.WindowsRuntime.md) | Coming
 [System.Runtime.Loader](System.Runtime.Loader.md) | Coming
-[System.Runtime.Numerics](System.Runtime.Numerics.md) | Partially Done
+[System.Runtime.Numerics](System.Runtime.Numerics.md) | Done
 [System.Runtime.Serialization.Json](System.Runtime.Serialization.Json.md) | Coming
 [System.Runtime.Serialization.Primitives](System.Runtime.Serialization.Primitives.md) | Coming
 [System.Runtime.Serialization.Xml](System.Runtime.Serialization.Xml.md) | Coming
@@ -97,10 +97,10 @@ Assembly Name | Status
 [System.ServiceModel.Primitives](System.ServiceModel.Primitives.md) | Coming
 [System.ServiceModel.Security](System.ServiceModel.Security.md) | Coming
 [System.ServiceProcess.ServiceController](System.ServiceProcess.ServiceController.md) | Done
-[System.Text.Encoding.CodePages](System.Text.Encoding.CodePages.md) | Partially Done
+[System.Text.Encoding.CodePages](System.Text.Encoding.CodePages.md) | Done
 [System.Text.Encoding](System.Text.Encoding.md) | Coming
 [System.Text.Encoding.Extensions](System.Text.Encoding.Extensions.md) | Coming
-[System.Text.RegularExpressions](System.Text.RegularExpressions.md) | Partially Done
+[System.Text.RegularExpressions](System.Text.RegularExpressions.md) | Done
 [System.Threading.AccessControl](System.Threading.AccessControl.md) | Coming
 [System.Threading](System.Threading.md) | Coming
 [System.Threading.Overlapped](System.Threading.Overlapped.md) | Coming
@@ -109,10 +109,10 @@ Assembly Name | Status
 [System.Threading.Thread](System.Threading.Thread.md) | Coming
 [System.Threading.ThreadPool](System.Threading.ThreadPool.md) | Coming
 [System.Threading.Timer](System.Threading.Timer.md) | Coming
-[System.Xml.ReaderWriter](System.Xml.ReaderWriter.md) | Partially Done
-[System.Xml.XDocument](System.Xml.XDocument.md) | Partially Done
-[System.Xml.XmlDocument](System.Xml.XmlDocument.md) | Partially Done
+[System.Xml.ReaderWriter](System.Xml.ReaderWriter.md) | Done
+[System.Xml.XDocument](System.Xml.XDocument.md) | Done
+[System.Xml.XmlDocument](System.Xml.XmlDocument.md) | Done
 [System.Xml.XmlSerializer](System.Xml.XmlSerializer.md) | Coming
 [System.Xml.XPath](System.Xml.XPath.md) | Done
 [System.Xml.XPath.XDocument](System.Xml.XPath.XDocument.md) | Done
-[System.Xml.XPath.XmlDocument](System.Xml.XPath.XmlDocument.md) | Partially Done
+[System.Xml.XPath.XmlDocument](System.Xml.XPath.XmlDocument.md) | Done
