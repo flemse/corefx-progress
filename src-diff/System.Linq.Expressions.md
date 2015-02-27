@@ -81,9 +81,11 @@
 -   public sealed override Type Type { get; }
 -   protected internal override Expression Accept(ExpressionVisitor visitor);
   }
-- public sealed class ElementInit {
+- public sealed class ElementInit : IArgumentProvider {
 -   public MethodInfo AddMethod { get; }
 -   public ReadOnlyCollection<Expression> Arguments { get; }
+-   int System.Linq.Expressions.IArgumentProvider.ArgumentCount { get; }
+-   Expression System.Linq.Expressions.IArgumentProvider.GetArgument(int index);
 -   public override string ToString();
 -   public ElementInit Update(IEnumerable<Expression> arguments);
   }
@@ -544,21 +546,34 @@
 -   Goto = 0,
 -   Return = 1,
   }
-- public sealed class IndexExpression : Expression {
+- public interface IArgumentProvider {
+-   int ArgumentCount { get; }
+-   Expression GetArgument(int index);
+  }
+- public interface IDynamicExpression : IArgumentProvider {
+-   Type DelegateType { get; }
+-   object CreateCallSite();
+-   Expression Rewrite(Expression[] args);
+  }
+- public sealed class IndexExpression : Expression, IArgumentProvider {
 -   public ReadOnlyCollection<Expression> Arguments { get; }
 -   public PropertyInfo Indexer { get; }
 -   public sealed override ExpressionType NodeType { get; }
 -   public Expression Object { get; }
+-   int System.Linq.Expressions.IArgumentProvider.ArgumentCount { get; }
 -   public sealed override Type Type { get; }
 -   protected internal override Expression Accept(ExpressionVisitor visitor);
+-   Expression System.Linq.Expressions.IArgumentProvider.GetArgument(int index);
 -   public IndexExpression Update(Expression @object, IEnumerable<Expression> arguments);
   }
-- public sealed class InvocationExpression : Expression {
+- public sealed class InvocationExpression : Expression, IArgumentProvider {
 -   public ReadOnlyCollection<Expression> Arguments { get; }
 -   public Expression Expression { get; }
 -   public sealed override ExpressionType NodeType { get; }
+-   int System.Linq.Expressions.IArgumentProvider.ArgumentCount { get; }
 -   public sealed override Type Type { get; }
 -   protected internal override Expression Accept(ExpressionVisitor visitor);
+-   Expression System.Linq.Expressions.IArgumentProvider.GetArgument(int index);
 -   public InvocationExpression Update(Expression expression, IEnumerable<Expression> arguments);
   }
 - public sealed class LabelExpression : Expression {
@@ -642,13 +657,15 @@
 -   public ReadOnlyCollection<MemberBinding> Bindings { get; }
 -   public MemberMemberBinding Update(IEnumerable<MemberBinding> bindings);
   }
-- public class MethodCallExpression : Expression {
+- public class MethodCallExpression : Expression, IArgumentProvider {
 -   public ReadOnlyCollection<Expression> Arguments { get; }
 -   public MethodInfo Method { get; }
 -   public sealed override ExpressionType NodeType { get; }
 -   public Expression Object { get; }
+-   int System.Linq.Expressions.IArgumentProvider.ArgumentCount { get; }
 -   public sealed override Type Type { get; }
 -   protected internal override Expression Accept(ExpressionVisitor visitor);
+-   Expression System.Linq.Expressions.IArgumentProvider.GetArgument(int index);
 -   public MethodCallExpression Update(Expression @object, IEnumerable<Expression> arguments);
   }
 - public class NewArrayExpression : Expression {
@@ -657,13 +674,15 @@
 -   protected internal override Expression Accept(ExpressionVisitor visitor);
 -   public NewArrayExpression Update(IEnumerable<Expression> expressions);
   }
-- public class NewExpression : Expression {
+- public class NewExpression : Expression, IArgumentProvider {
 -   public ReadOnlyCollection<Expression> Arguments { get; }
 -   public ConstructorInfo Constructor { get; }
 -   public ReadOnlyCollection<MemberInfo> Members { get; }
 -   public sealed override ExpressionType NodeType { get; }
+-   int System.Linq.Expressions.IArgumentProvider.ArgumentCount { get; }
 -   public override Type Type { get; }
 -   protected internal override Expression Accept(ExpressionVisitor visitor);
+-   Expression System.Linq.Expressions.IArgumentProvider.GetArgument(int index);
 -   public NewExpression Update(IEnumerable<Expression> arguments);
   }
 - public class ParameterExpression : Expression {

@@ -227,9 +227,9 @@
     public void SetAttributeValue(XName name, object value);
     public void SetElementValue(XName name, object value);
     public void SetValue(object value);
--   XmlSchema System.Xml.Serialization.IXmlSerializable.GetSchema();
--   void System.Xml.Serialization.IXmlSerializable.ReadXml(XmlReader reader);
--   void System.Xml.Serialization.IXmlSerializable.WriteXml(XmlWriter writer);
+    XmlSchema System.Xml.Serialization.IXmlSerializable.GetSchema();
+    void System.Xml.Serialization.IXmlSerializable.ReadXml(XmlReader reader);
+    void System.Xml.Serialization.IXmlSerializable.WriteXml(XmlWriter writer);
     public override void WriteTo(XmlWriter writer);
   }
   public sealed class XName : IEquatable<XName> {

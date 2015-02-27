@@ -71,6 +71,7 @@ Assembly Name | Status
 [System.Runtime.Extensions](System.Runtime.Extensions.md) | Coming
 [System.Runtime.Handles](System.Runtime.Handles.md) | Coming
 [System.Runtime.InteropServices](System.Runtime.InteropServices.md) | Coming
+[System.Runtime.InteropServices.WindowsRuntime](System.Runtime.InteropServices.WindowsRuntime.md) | Coming
 [System.Runtime.Loader](System.Runtime.Loader.md) | Coming
 [System.Runtime.Numerics](System.Runtime.Numerics.md) | Partially Done
 [System.Runtime.Serialization.Json](System.Runtime.Serialization.Json.md) | Coming
@@ -108,10 +109,10 @@ Assembly Name | Status
 [System.Threading.Thread](System.Threading.Thread.md) | Coming
 [System.Threading.ThreadPool](System.Threading.ThreadPool.md) | Coming
 [System.Threading.Timer](System.Threading.Timer.md) | Coming
-[System.Xml.ReaderWriter](System.Xml.ReaderWriter.md) | Coming
+[System.Xml.ReaderWriter](System.Xml.ReaderWriter.md) | Partially Done
 [System.Xml.XDocument](System.Xml.XDocument.md) | Partially Done
 [System.Xml.XmlDocument](System.Xml.XmlDocument.md) | Partially Done
 [System.Xml.XmlSerializer](System.Xml.XmlSerializer.md) | Coming
 [System.Xml.XPath](System.Xml.XPath.md) | Done
 [System.Xml.XPath.XDocument](System.Xml.XPath.XDocument.md) | Done
-[System.Xml.XPath.XmlDocument](System.Xml.XPath.XmlDocument.md) | Done
+[System.Xml.XPath.XmlDocument](System.Xml.XPath.XmlDocument.md) | Partially Done

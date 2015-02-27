@@ -1,5 +1,5 @@
-﻿namespace System.Xml.XPath {
-  public static class XmlDocumentExtensions {
+﻿namespace System.Xml {
+  public static class XmlDocumentXPathExtensions {
     public static XPathNavigator CreateNavigator(this XmlDocument document);
     public static XPathNavigator CreateNavigator(this XmlDocument document, XmlNode node);
     public static XPathNavigator CreateNavigator(this XmlNode node);

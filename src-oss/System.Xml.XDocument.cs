@@ -149,7 +149,7 @@
     public string SystemId { get; set; }
     public override void WriteTo(XmlWriter writer);
   }
-  public class XElement : XContainer {
+  public class XElement : XContainer, IXmlSerializable {
     public XElement(XElement other);
     public XElement(XName name);
     public XElement(XName name, object content);
@@ -224,6 +224,9 @@
     public void SetAttributeValue(XName name, object value);
     public void SetElementValue(XName name, object value);
     public void SetValue(object value);
+    XmlSchema System.Xml.Serialization.IXmlSerializable.GetSchema();
+    void System.Xml.Serialization.IXmlSerializable.ReadXml(XmlReader reader);
+    void System.Xml.Serialization.IXmlSerializable.WriteXml(XmlWriter writer);
     public override void WriteTo(XmlWriter writer);
   }
   public sealed class XName : IEquatable<XName> {
