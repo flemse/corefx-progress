@@ -1,5 +1,11 @@
 # .NET Core: Library Open Source Progress
 
+![Chart](Status.png)
+
+For more details, see [.NET Core: Library Open Source Progress][progress]
+
+## Overview
+
 This repository is designed to allow you track our progress towards open source.
 It's only provided as a temporary mechanism to allow you track the difference
 between what we've already open sourced and what is yet to come. As a result, we
