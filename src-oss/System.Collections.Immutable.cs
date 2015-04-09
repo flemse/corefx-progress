@@ -62,7 +62,6 @@
     public static int BinarySearch<T>(this ImmutableArray<T> array, int index, int length, T value, IComparer<T> comparer);
     public static int BinarySearch<T>(this ImmutableArray<T> array, T value);
     public static int BinarySearch<T>(this ImmutableArray<T> array, T value, IComparer<T> comparer);
-    public static ImmutableArray<T> Create<T, TDerived>(ImmutableArray<TDerived> items) where TDerived : class, T;
     public static ImmutableArray<T> Create<T>();
     public static ImmutableArray<T> Create<T>(ImmutableArray<T> items, int start, int length);
     public static ImmutableArray<T> Create<T>(T item);
@@ -103,6 +102,8 @@
     public ImmutableArray<T> AddRange(IEnumerable<T> items);
     public ImmutableArray<T> AddRange(ImmutableArray<T> items);
     public ImmutableArray<TOther> As<TOther>() where TOther : class;
+    public ImmutableArray<TOther> CastArray<TOther>() where TOther : class;
+    public static ImmutableArray<T> CastUp<TDerived>(ImmutableArray<TDerived> items) where TDerived : class, T;
     public ImmutableArray<T> Clear();
     public bool Contains(T item);
     public void CopyTo(int sourceIndex, T[] destination, int destinationIndex, int length);
@@ -176,6 +177,7 @@
     int System.Collections.IStructuralEquatable.GetHashCode(IEqualityComparer comparer);
     public ImmutableArray<T>.Builder ToBuilder();
     public sealed class Builder : ICollection<T>, IEnumerable, IEnumerable<T>, IList<T>, IReadOnlyCollection<T>, IReadOnlyList<T> {
+      public int Capacity { get; set; }
       public int Count { get; set; }
       bool System.Collections.Generic.ICollection<T>.IsReadOnly { get; }
       public T this[int index] { get; set; }
@@ -192,7 +194,6 @@
       public void Clear();
       public bool Contains(T item);
       public void CopyTo(T[] array, int index);
-      public void EnsureCapacity(int capacity);
       public IEnumerator<T> GetEnumerator();
       public int IndexOf(T item);
       public int IndexOf(T item, int startIndex);
@@ -203,9 +204,10 @@
       public int LastIndexOf(T item, int startIndex);
       public int LastIndexOf(T item, int startIndex, int count);
       public int LastIndexOf(T item, int startIndex, int count, IEqualityComparer<T> equalityComparer);
+      public ImmutableArray<T> MoveToImmutable();
       public bool Remove(T element);
       public void RemoveAt(int index);
-      public void ReverseContents();
+      public void Reverse();
       public void Sort();
       public void Sort(IComparer<T> comparer);
       public void Sort(int index, int count, IComparer<T> comparer);
@@ -459,6 +461,8 @@
     public static bool TryPop<T>(ref ImmutableStack<T> location, out T value);
     public static bool TryRemove<TKey, TValue>(ref ImmutableDictionary<TKey, TValue> location, TKey key, out TValue value);
     public static bool TryUpdate<TKey, TValue>(ref ImmutableDictionary<TKey, TValue> location, TKey key, TValue newValue, TValue comparisonValue);
+    public static bool Update<T, TArg>(ref T location, Func<T, TArg, T> transformer, TArg transformerArgument) where T : class;
+    public static bool Update<T>(ref T location, Func<T, T> transformer) where T : class;
   }
   public static class ImmutableList {
     public static ImmutableList<T> Create<T>();

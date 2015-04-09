@@ -43,11 +43,6 @@
 -   public XmlDictionaryString RootNamespace { get; set; }
 -   public bool SerializeReadOnlyTypes { get; set; }
   }
-- public class InvalidDataContractException : Exception {
--   public InvalidDataContractException();
--   public InvalidDataContractException(string message);
--   public InvalidDataContractException(string message, Exception innerException);
-  }
 - public abstract class XmlObjectSerializer {
 -   protected XmlObjectSerializer();
 -   public abstract bool IsStartObject(XmlDictionaryReader reader);

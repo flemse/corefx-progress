@@ -251,7 +251,6 @@ namespace System.Data.SqlClient {
     public override int ConnectionTimeout { get; }
     public override string Database { get; }
     public override string DataSource { get; }
-    protected override DbProviderFactory DbProviderFactory { get; }
     public bool FireInfoMessageEventOnUserErrors { get; set; }
     public int PacketSize { get; }
     public override string ServerVersion { get; }

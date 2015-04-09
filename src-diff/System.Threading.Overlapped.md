@@ -21,5 +21,13 @@
 -   public unsafe static Overlapped Unpack(NativeOverlapped* nativeOverlappedPtr);
 -   public unsafe NativeOverlapped* UnsafePack(IOCompletionCallback iocb, object userData);
   }
+- public sealed class ThreadPoolBoundHandle : IDisposable {
+-   public SafeHandle Handle { get; }
+-   public unsafe NativeOverlapped* AllocateNativeOverlapped(IOCompletionCallback callback, object state, byte[] pinData);
+-   public static ThreadPoolBoundHandle BindHandle(SafeHandle handle);
+-   public void Dispose();
+-   public unsafe void FreeNativeOverlapped(NativeOverlapped* overlapped);
+-   public unsafe static object GetNativeOverlappedState(NativeOverlapped* overlapped);
+  }
  }
 ```

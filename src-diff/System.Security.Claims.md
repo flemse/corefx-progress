@@ -4,12 +4,15 @@
 -namespace System.Security.Claims {
 - public class Claim {
 -   public Claim(BinaryReader reader);
+-   public Claim(BinaryReader reader, ClaimsIdentity subject);
 -   protected Claim(Claim other);
+-   protected Claim(Claim other, ClaimsIdentity subject);
 -   public Claim(string type, string value);
 -   public Claim(string type, string value, string valueType);
 -   public Claim(string type, string value, string valueType, string issuer);
 -   public Claim(string type, string value, string valueType, string issuer, string originalIssuer);
 -   public Claim(string type, string value, string valueType, string issuer, string originalIssuer, ClaimsIdentity subject);
+-   protected virtual byte[] CustomSerializationData { get; }
 -   public string Issuer { get; }
 -   public string OriginalIssuer { get; }
 -   public IDictionary<string, string> Properties { get; }
@@ -21,6 +24,7 @@
 -   public virtual Claim Clone(ClaimsIdentity identity);
 -   public override string ToString();
 -   public virtual void WriteTo(BinaryWriter writer);
+-   protected virtual void WriteTo(BinaryWriter writer, byte[] userData);
   }
 - public class ClaimsIdentity : IIdentity {
 -   public const string DefaultIssuer = "LOCAL AUTHORITY";
@@ -41,6 +45,7 @@
 -   public virtual string AuthenticationType { get; }
 -   public object BootstrapContext { get; set; }
 -   public virtual IEnumerable<Claim> Claims { get; }
+-   protected virtual byte[] CustomSerializationData { get; }
 -   public virtual bool IsAuthenticated { get; }
 -   public string Label { get; set; }
 -   public virtual string Name { get; }
@@ -49,6 +54,7 @@
 -   public virtual void AddClaim(Claim claim);
 -   public virtual void AddClaims(IEnumerable<Claim> claims);
 -   public virtual ClaimsIdentity Clone();
+-   protected virtual Claim CreateClaim(BinaryReader reader);
 -   public virtual IEnumerable<Claim> FindAll(Predicate<Claim> match);
 -   public virtual IEnumerable<Claim> FindAll(string type);
 -   public virtual Claim FindFirst(Predicate<Claim> match);
@@ -58,6 +64,7 @@
 -   public virtual void RemoveClaim(Claim claim);
 -   public virtual bool TryRemoveClaim(Claim claim);
 -   public virtual void WriteTo(BinaryWriter writer);
+-   protected virtual void WriteTo(BinaryWriter writer, byte[] userData);
   }
 - public class ClaimsPrincipal : IPrincipal {
 -   public ClaimsPrincipal();
@@ -68,11 +75,14 @@
 -   public virtual IEnumerable<Claim> Claims { get; }
 -   public static Func<ClaimsPrincipal> ClaimsPrincipalSelector { get; set; }
 -   public static ClaimsPrincipal Current { get; }
+-   protected virtual byte[] CustomSerializationData { get; }
 -   public virtual IEnumerable<ClaimsIdentity> Identities { get; }
 -   public virtual IIdentity Identity { get; }
 -   public static Func<IEnumerable<ClaimsIdentity>, ClaimsIdentity> PrimaryIdentitySelector { get; set; }
 -   public virtual void AddIdentities(IEnumerable<ClaimsIdentity> identities);
 -   public virtual void AddIdentity(ClaimsIdentity identity);
+-   public virtual ClaimsPrincipal Clone();
+-   protected virtual ClaimsIdentity CreateClaimsIdentity(BinaryReader reader);
 -   public virtual IEnumerable<Claim> FindAll(Predicate<Claim> match);
 -   public virtual IEnumerable<Claim> FindAll(string type);
 -   public virtual Claim FindFirst(Predicate<Claim> match);
@@ -81,6 +91,7 @@
 -   public virtual bool HasClaim(string type, string value);
 -   public virtual bool IsInRole(string role);
 -   public virtual void WriteTo(BinaryWriter writer);
+-   protected virtual void WriteTo(BinaryWriter writer, byte[] userData);
   }
 - public static class ClaimTypes {
 -   public const string Actor = "http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor";

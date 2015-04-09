@@ -126,7 +126,6 @@ namespace System.Data.Common {
     public virtual int ConnectionTimeout { get; }
     public abstract string Database { get; }
     public abstract string DataSource { get; }
-    protected virtual DbProviderFactory DbProviderFactory { get; }
     public abstract string ServerVersion { get; }
     public abstract ConnectionState State { get; }
     public virtual event StateChangeEventHandler StateChange;
@@ -271,9 +270,6 @@ namespace System.Data.Common {
     public abstract void RemoveAt(string parameterName);
     protected abstract void SetParameter(int index, DbParameter value);
     protected abstract void SetParameter(string parameterName, DbParameter value);
-  }
-  public static class DbProviderFactories {
-    public static DbProviderFactory GetFactory(DbConnection connection);
   }
   public abstract class DbProviderFactory {
     protected DbProviderFactory();

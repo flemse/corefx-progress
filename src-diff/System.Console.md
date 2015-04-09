@@ -8,6 +8,7 @@
     public static ConsoleColor ForegroundColor { get; set; }
     public static TextReader In { get; }
     public static TextWriter Out { get; }
++   public static event ConsoleCancelEventHandler CancelKeyPress;
     public static Stream OpenStandardError();
     public static Stream OpenStandardInput();
     public static Stream OpenStandardOutput();
@@ -53,6 +54,11 @@
 +   [MethodImpl(NoInlining)]public static void WriteLine(uint value);
 +   [MethodImpl(NoInlining)]public static void WriteLine(ulong value);
   }
++ public sealed class ConsoleCancelEventArgs : EventArgs {
++   public bool Cancel { get; set; }
++   public ConsoleSpecialKey SpecialKey { get; }
+  }
++ public delegate void ConsoleCancelEventHandler(object sender, ConsoleCancelEventArgs e);
   public enum ConsoleColor {
     Black = 0,
     Blue = 9,
@@ -70,6 +76,10 @@
     Red = 12,
     White = 15,
     Yellow = 14,
+  }
++ public enum ConsoleSpecialKey {
++   ControlBreak = 1,
++   ControlC = 0,
   }
  }
 ```

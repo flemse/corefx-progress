@@ -33,8 +33,10 @@
 - public static class Convert {
 -   public static object ChangeType(object value, Type conversionType);
 -   public static object ChangeType(object value, Type conversionType, IFormatProvider provider);
+-   public static object ChangeType(object value, TypeCode typeCode, IFormatProvider provider);
 -   public static byte[] FromBase64CharArray(char[] inArray, int offset, int length);
 -   public static byte[] FromBase64String(string s);
+-   public static TypeCode GetTypeCode(object value);
 -   public static int ToBase64CharArray(byte[] inArray, int offsetIn, int length, char[] outArray, int offsetOut);
 -   public static string ToBase64String(byte[] inArray);
 -   public static string ToBase64String(byte[] inArray, int offset, int length);
@@ -462,6 +464,8 @@
 -   public static readonly char PathSeparator;
 -   public static readonly char VolumeSeparatorChar;
 -   public static string ChangeExtension(string path, string extension);
+-   public static string Combine(string path1, string path2);
+-   public static string Combine(string path1, string path2, string path3);
 -   public static string Combine(params string[] paths);
 -   public static string GetDirectoryName(string path);
 -   public static string GetExtension(string path);
