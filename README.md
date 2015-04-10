@@ -1,6 +1,6 @@
 # .NET Core: Library Open Source Progress
 
-![Chart](Status.png)
+![Chart](progress.png)
 
 For more details, see [.NET Core: Library Open Source Progress][progress]
 
