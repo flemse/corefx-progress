@@ -32,7 +32,7 @@ Assembly Name | Status
 [System.Globalization.Calendars](System.Globalization.Calendars.md) | Coming
 [System.Globalization](System.Globalization.md) | Coming
 [System.Globalization.Extensions](System.Globalization.Extensions.md) | Done
-[System.IO.Compression](System.IO.Compression.md) | Coming
+[System.IO.Compression](System.IO.Compression.md) | Done
 [System.IO.Compression.ZipFile](System.IO.Compression.ZipFile.md) | Coming
 [System.IO](System.IO.md) | Coming
 [System.IO.FileSystem.AccessControl](System.IO.FileSystem.AccessControl.md) | Coming
@@ -93,7 +93,7 @@ Assembly Name | Status
 [System.Security.Cryptography.X509Certificates](System.Security.Cryptography.X509Certificates.md) | Coming
 [System.Security.Principal](System.Security.Principal.md) | Coming
 [System.Security.Principal.Windows](System.Security.Principal.Windows.md) | Coming
-[System.Security.SecureString](System.Security.SecureString.md) | Coming
+[System.Security.SecureString](System.Security.SecureString.md) | Done
 [System.ServiceModel.Duplex](System.ServiceModel.Duplex.md) | Coming
 [System.ServiceModel.Http](System.ServiceModel.Http.md) | Coming
 [System.ServiceModel.NetTcp](System.ServiceModel.NetTcp.md) | Coming

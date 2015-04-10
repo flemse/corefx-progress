@@ -245,6 +245,7 @@
 + public abstract class XmlSerializationReader : XmlSerializationGeneratedCode {
 +   protected XmlSerializationReader();
 +   protected bool DecodeName { get; set; }
++   protected XmlDocument Document { get; }
 +   protected bool IsReturnValue { get; set; }
 +   protected XmlReader Reader { get; }
 +   protected int ReaderCount { get; }
@@ -267,6 +268,7 @@
 +   protected abstract void InitCallbacks();
 +   protected abstract void InitIDs();
 +   protected bool IsXmlnsAttribute(string name);
++   protected void ParseWsdlArrayType(XmlAttribute attr);
 +   protected XmlQualifiedName ReadElementQualifiedName();
 +   protected void ReadEndElement();
 +   protected bool ReadNull();
@@ -278,6 +280,8 @@
 +   protected string ReadString(string value, bool trim);
 +   protected object ReadTypedNull(XmlQualifiedName type);
 +   protected object ReadTypedPrimitive(XmlQualifiedName type);
++   protected XmlDocument ReadXmlDocument(bool wrapped);
++   protected XmlNode ReadXmlNode(bool wrapped);
 +   protected Array ShrinkArray(Array a, int length, Type elementType, bool isNullable);
 +   protected byte[] ToByteArrayBase64(bool isNull);
 +   protected static byte[] ToByteArrayBase64(string value);
@@ -332,6 +336,7 @@
 +   protected void WriteAttribute(string localName, string ns, byte[] value);
 +   protected void WriteAttribute(string localName, string ns, string value);
 +   protected void WriteAttribute(string prefix, string localName, string ns, string value);
++   protected void WriteElementLiteral(XmlNode node, string name, string ns, bool isNullable, bool any);
 +   protected void WriteElementQualifiedName(string localName, string ns, XmlQualifiedName value);
 +   protected void WriteElementQualifiedName(string localName, string ns, XmlQualifiedName value, XmlQualifiedName xsiType);
 +   protected void WriteElementQualifiedName(string localName, XmlQualifiedName value);
@@ -377,6 +382,8 @@
 +   protected void WriteTypedPrimitive(string name, string ns, object o, bool xsiType);
 +   protected void WriteValue(byte[] value);
 +   protected void WriteValue(string value);
++   protected void WriteXmlAttribute(XmlNode node);
++   protected void WriteXmlAttribute(XmlNode node, object container);
 +   protected void WriteXsiType(string name, string ns);
   }
   public class XmlSerializer {
