@@ -18,6 +18,7 @@ $srcFullFolder = "src-full"
 $srcOssFolder = "src-oss"
 $srcDiffFolder = "src-diff"
 $summaryFile = "src-diff\README.md"
+$progressPng = $PSScriptRoot + "\progress.png"
 
 # Functions
 
@@ -160,6 +161,81 @@ function update-table($src1, $src2, $resultFile)
     $lines | out-file $resultFile -encoding utf8
 }
 
+function update-chart($src1, $src2, $resultFile)
+{
+    # Compute #done, #coming
+
+    $done = 0.0
+    $coming = 0.0
+
+    $files1 = ls $src1 | sort $_.BaseName
+
+    foreach ($file1 in $files1)
+    {
+        $file2 = $src2 + '\' + $file1.Name
+
+        if (test-path $file2)
+        {
+            $done = $done + 1
+        }
+        else
+        {
+            $coming = $coming + 1
+        }
+    }
+
+    $total = $done + $coming
+    $donePercent = $done / $total
+    $comingPercent = $coming /  $total
+
+    # Render the chart
+
+    [void][Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
+    [void][Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms.DataVisualization")
+
+    $chart = New-object System.Windows.Forms.DataVisualization.Charting.Chart
+    $chart.Width = 600
+    $chart.Height = 300
+
+    # Add Title
+
+    $title = $chart.Titles.Add("text1")
+    $title.Text = "GitHub Availability of .NET Core APIs"
+    $title.Font = New-Object System.Drawing.Font("Calibri", 18)
+
+    # Add chart
+
+    $area = $chart.ChartAreas.Add("area1")
+    $area.Area3DStyle.Enable3D = $true
+
+    # Add series
+
+    $series = $chart.Series.Add("series1")
+    $series.ChartType = [System.Windows.Forms.DataVisualization.Charting.SeriesChartType]::Pie
+
+    # Data
+
+    $p1 = New-object System.Windows.Forms.DataVisualization.Charting.DataPoint
+    $p1.AxisLabel = [string]::Format("Coming {0:P0}", $comingPercent)
+    $p1.Color = [System.Drawing.Color]::Orange
+    $p1.LabelForeColor = [System.Drawing.Color]::White
+    $p1.LabelBackColor = [System.Drawing.Color]::Black
+    $p1.Font = New-Object System.Drawing.Font("Calibri", 10)
+    $p1.YValues = [System.Double[]] @($comingPercent)
+    $series.Points.Add($p1)
+
+    $p2 = New-object System.Windows.Forms.DataVisualization.Charting.DataPoint
+    $p2.AxisLabel = [string]::Format("Done {0:P0}", $donePercent)
+    $p2.Color = [System.Drawing.Color]::DodgerBlue
+    $p2.LabelForeColor = [System.Drawing.Color]::White
+    $p2.LabelBackColor = [System.Drawing.Color]::Black
+    $p2.Font = New-Object System.Drawing.Font("Calibri", 10)
+    $p2.YValues = [System.Double[]] @($donePercent)
+    $series.Points.Add($p2)
+
+    $chart.SaveImage($resultFile, [System.Windows.Forms.DataVisualization.Charting.ChartImageFormat]::Png)
+}
+
 # Main flow
 
 update-lib-full $libFullFolder
@@ -170,3 +246,4 @@ update-src $libOssFolder $srcOssFolder
 
 update-diff $libFullFolder $libOssFolder $srcDiffFolder
 update-table $srcFullFolder $srcOssFolder $summaryFile
+update-chart $srcFullFolder $srcOssFolder $progressPng
